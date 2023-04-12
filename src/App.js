@@ -1,9 +1,22 @@
+//header text
 const Header = () => {
   return <h1>Half Stack application Development</h1>;
 };
+
+//
+const Total = (props) => {
+  const { course } = props;
+
+  const totalc = course.parts.reduce((sum, x) => sum + x.exercises, 0);
+
+  return <p>Total amount: {totalc}</p>;
+};
+//no bullet style
 const mystyle = {
   listStyleType: 'none',
 };
+
+//course component
 const Course = (props) => {
   const { course } = props;
   return (
@@ -17,10 +30,12 @@ const Course = (props) => {
           </li>
         ))}
       </ul>
+      <Total course={course} />
     </div>
   );
 };
 
+//app with course info
 const App = () => {
   const course = {
     id: 1,
