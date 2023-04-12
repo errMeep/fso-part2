@@ -1,10 +1,22 @@
+const Header = () => {
+  return <h1>Half Stack application Development</h1>;
+};
+const mystyle = {
+  listStyleType: 'none',
+};
 const Course = (props) => {
   const { course } = props;
   return (
     <div>
-      {course.parts.map((info) => (
-        <li key={info.id}>{info.name}</li>
-      ))}
+      <Header />
+      <ul style={mystyle}>
+        {course.parts.map((info) => (
+          <li key={info.id}>
+            {' '}
+            {info.name} {info.exercises}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
